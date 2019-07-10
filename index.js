@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
+//require("dotenv").config();
 
 const app = express();
 
@@ -21,8 +22,8 @@ app.post("/api/checkout", (req, res) => {
     service: "yahoo",
     port: 587,
     auth: {
-      user: "trandavis18@yahoo.com",
-      pass: "P0kemonmaster"
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
     },
     tls: {
       rejectUnauthorized: false
@@ -30,7 +31,7 @@ app.post("/api/checkout", (req, res) => {
   });
 
   var mailOptions = {
-    from: '"Shopping Request" <trandavis18@yahoo.com>',
+    from: "Shopping Request",
     to: "austinjoey@ymail.com",
     subject: "Shopping Request",
     text: htmlEmail
@@ -56,8 +57,8 @@ app.post("/api/form", (req, res) => {
     service: "yahoo",
     port: 587,
     auth: {
-      user: "trandavis18@yahoo.com",
-      pass: "P0kemonmaster"
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
     },
     tls: {
       rejectUnauthorized: false
@@ -65,7 +66,7 @@ app.post("/api/form", (req, res) => {
   });
 
   var mailOptions = {
-    from: '"Shopping Request" <trandavis18@yahoo.com>',
+    from: "Shopping Request",
     to: "austinjoey@ymail.com",
     subject: "Shopping Request",
     text: htmlEmail
