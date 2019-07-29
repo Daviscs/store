@@ -101,7 +101,7 @@ export default class Checkout extends Component {
                     onChange={this.handleChange}
                     type="text"
                     name="email"
-                    value={this.state.street}
+                    value={this.state.email}
                   />
                 </div>
                 <div className="street">
